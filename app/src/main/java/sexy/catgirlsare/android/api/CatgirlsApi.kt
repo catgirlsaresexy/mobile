@@ -32,5 +32,5 @@ interface CatgirlsApi {
     fun disown(@Body request: DisownRequest): Call<DisownResponse>
 
     @POST("uploads")
-    fun getUploads(@Body request: UploadsRequest): Call<List<Upload>>
+    fun getUploads(@Body request: UploadsRequest): Call<UploadList>
 }

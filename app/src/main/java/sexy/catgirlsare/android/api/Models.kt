@@ -48,6 +48,13 @@ data class UploadsRequest(
     val page: Int
 )
 
+data class UploadList(
+    @SerializedName("uploads")
+    val uploads: List<Upload>,
+    @SerializedName("total_uploads")
+    val total: Int
+)
+
 data class Upload(
     @SerializedName("path")
     val path: String,
