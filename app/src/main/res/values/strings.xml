@@ -4,6 +4,5 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Log in</string>
-    <string name="main">Main</string>
     <string name="uploads">Uploads</string>
 </resources>

@@ -7,7 +7,6 @@
     <fragment
         android:id="@+id/main"
         android:name="sexy.catgirlsare.android.ui.main.MainFragment"
-        android:label="@string/main"
         tools:layout="@layout/main_fragment" >
 
         <action
@@ -19,7 +18,6 @@
     <fragment
         android:id="@+id/uploads"
         android:name="sexy.catgirlsare.android.ui.uploads.UploadsFragment"
-        android:label="@string/uploads"
         tools:layout="@layout/uploads_fragment" />
 
 </navigation>
