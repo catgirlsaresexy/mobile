@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.uploads_fragment.*
 import sexy.catgirlsare.android.R
-import kotlin.math.floor
+import kotlin.math.roundToInt
 
 class UploadsFragment : Fragment() {
 
@@ -24,12 +24,15 @@ class UploadsFragment : Fragment() {
 
         val metrics = DisplayMetrics()
         activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-        val gridSize = floor(metrics.widthPixels.toFloat() / metrics.density / 120.0f).toInt()
+        val screenSize = metrics.widthPixels.toFloat()
+
+        val gridSize = context?.resources?.getDimension(R.dimen.gridSize) ?: Float.NaN
+        val realGridSize = if (gridSize.isFinite()) gridSize else screenSize
 
         val adapter = UploadListAdapter()
 
         list.adapter = adapter
-        list.layoutManager = GridLayoutManager(context, gridSize)
+        list.layoutManager = GridLayoutManager(context, (screenSize / realGridSize).roundToInt())
 
         viewModel.uploads.observe(this::getLifecycle) { uploads ->
             adapter.submitList(uploads)
