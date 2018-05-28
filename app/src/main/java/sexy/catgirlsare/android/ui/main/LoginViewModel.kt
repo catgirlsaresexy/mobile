@@ -20,7 +20,7 @@ class LoginViewModel : ViewModel() {
 
             val body = response.body()
 
-            mutableMessage.postValue(body?.data?.message ?: "An unknown error has occurred")
+            mutableMessage.postValue(body?.data?.message ?: body?.error ?: "An unknown error has occurred")
 
             if (body?.data?.key != null) prefs.edit {
                 putString("key", body.data.key)
