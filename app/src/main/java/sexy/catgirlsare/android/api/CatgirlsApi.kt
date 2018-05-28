@@ -14,11 +14,14 @@ private val api: CatgirlsApi = Retrofit.Builder()
     .build()
     .create(CatgirlsApi::class.java)
 
-var key: String = ""
+private var key: String = ""
+fun setApiKey(apiKey: String) {
+    key = apiKey
+}
 
-fun login(username: String, password: String) = api.login(Credentials(username, password)).execute()
-fun disown(file: String) = api.disown(DisownRequest(key, file)).execute()
-fun getUploads(page: Int, count: Int) = api.getUploads(UploadsRequest(key, count, page)).execute()
+fun login(username: String, password: String) = api.login(Credentials(username, password)).execute()!!
+fun disown(file: String) = api.disown(DisownRequest(key, file)).execute()!!
+fun getUploads(page: Int, count: Int) = api.getUploads(UploadsRequest(key, count, page)).execute()!!
 
 interface CatgirlsApi {
 
