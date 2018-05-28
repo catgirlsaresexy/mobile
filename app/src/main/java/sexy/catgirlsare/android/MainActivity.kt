@@ -9,12 +9,14 @@ import androidx.core.view.forEach
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.main_activity.*
 import sexy.catgirlsare.android.api.setApiKey
+import sexy.catgirlsare.android.ui.home.HomeFragment
 import sexy.catgirlsare.android.ui.main.LoginFragment
 import sexy.catgirlsare.android.ui.uploads.UploadsFragment
 
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private lateinit var loginFragment: LoginFragment
+    private lateinit var homeFragment: HomeFragment
     private lateinit var uploadsFragment: UploadsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +30,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         homeButton.setOnClickListener {
             highlight(it as ImageButton)
-            // todo home page
+            supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.content, homeFragment)
+                ?.commit()
         }
         uploadsButton.setOnClickListener {
             highlight(it as ImageButton)
@@ -68,9 +72,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 ?.commit()
             bottomNavigation.isGone = true
         } else {
+            homeFragment = HomeFragment()
             uploadsFragment = UploadsFragment()
             supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.content, uploadsFragment)
+                ?.replace(R.id.content, homeFragment)
                 ?.commit()
             bottomNavigation.isGone = false
             highlight(homeButton)
