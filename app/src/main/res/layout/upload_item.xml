@@ -4,17 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="16dp"
-    android:paddingTop="8dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="8dp">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/rounded_rect"
+    android:backgroundTint="#ddd"
+    tools:showIn="@layout/uploads_fragment">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImageView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#fff"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius_top_left="4dp"
+        app:riv_corner_radius_top_right="4dp"
+        app:riv_tile_mode="clamp" />
 
     <TextView
         android:id="@+id/textPath"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundedImageView"
         tools:text="file.txt" />
 
 </android.support.constraint.ConstraintLayout>
