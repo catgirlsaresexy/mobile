@@ -8,7 +8,7 @@ import sexy.catgirlsare.android.api.login
 import sexy.catgirlsare.android.prefs
 import kotlin.concurrent.thread
 
-class MainViewModel : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     val message: LiveData<String> = MutableLiveData()
     private val mutableMessage: MutableLiveData<String>

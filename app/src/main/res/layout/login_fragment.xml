@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context="sexy.catgirlsare.android.ui.main.MainFragment">
+    tools:context="sexy.catgirlsare.android.ui.main.LoginFragment">
 
     <ImageView
         android:layout_width="0dp"
@@ -26,13 +26,11 @@
         android:background="#9fff"
         android:orientation="vertical"
         android:padding="16dp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.8"
-        tools:visibility="visible">
+        app:layout_constraintWidth_percent="0.8">
 
         <TextView
             android:id="@+id/loginLabel"

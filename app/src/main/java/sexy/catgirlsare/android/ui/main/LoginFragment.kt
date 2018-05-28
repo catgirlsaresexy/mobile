@@ -7,24 +7,21 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.core.widget.toast
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.login_fragment.*
 import sexy.catgirlsare.android.R
-import sexy.catgirlsare.android.prefs
 
-class MainFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
-        inflater.inflate(R.layout.main_fragment, container, false)!!
+        inflater.inflate(R.layout.login_fragment, container, false)!!
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
-        if (prefs.getString("key", "").isEmpty()) {
-            loginContainer.isVisible = true
-        }
+        loginContainer.isVisible = true
 
         loginButton.setOnClickListener {
             viewModel.attemptLogin(usernameField.text.toString(), passwordField.text.toString())
