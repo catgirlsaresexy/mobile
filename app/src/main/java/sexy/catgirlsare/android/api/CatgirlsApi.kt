@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-private const val API_URL = "https://catgirlsare.sexy/api"
+private const val API_URL = "https://catgirlsare.sexy/api/"
 
 private val api: CatgirlsApi = Retrofit.Builder()
     .baseUrl(API_URL)
@@ -25,7 +25,7 @@ fun getUploads(page: Int, count: Int) = api.getUploads(UploadsRequest(key, count
 
 interface CatgirlsApi {
 
-    @POST("auth/user")
+    @POST("user/auth")
     fun login(@Body credentials: Credentials): Call<CredentialsResponse>
 
     @POST("disown")
