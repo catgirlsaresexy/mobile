@@ -53,10 +53,22 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     private fun highlight(button: ImageButton) {
+
+        val attrs = intArrayOf(R.attr.bottomNavigationBackground, R.attr.bottomNavigationSelected)
+        val values = theme.obtainStyledAttributes(attrs)
+
+        val unselected = values.getColor(attrs.indexOf(R.attr.bottomNavigationBackground), 0)
+        val selected = values.getColor(attrs.indexOf(R.attr.bottomNavigationBackground), 0)
+
+        values.recycle()
+
         bottomNavigation.forEach { view ->
-            view.setBackgroundColor(0xFFDDDDDD.toInt())
+            if (view.id == button.id) {
+                view.setBackgroundColor(selected)
+            } else {
+                view.setBackgroundColor(unselected)
+            }
         }
-        button.setBackgroundColor(0xFFAAAAAA.toInt())
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
