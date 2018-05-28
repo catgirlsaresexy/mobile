@@ -8,6 +8,18 @@
         android:id="@+id/main"
         android:name="sexy.catgirlsare.android.ui.main.MainFragment"
         android:label="@string/main"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+
+        <action
+            android:id="@+id/login"
+            app:destination="@id/uploads" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploads"
+        android:name="sexy.catgirlsare.android.ui.uploads.UploadsFragment"
+        android:label="@string/uploads"
+        tools:layout="@layout/uploads_fragment" />
 
 </navigation>
