@@ -13,13 +13,17 @@ data class CredentialsResponse(
     @SerializedName("type")
     val type: String,
     @SerializedName("data")
-    val data: ResponseData
+    val data: ResponseData?
 ) {
     data class ResponseData(
         @SerializedName("message")
         val message: String,
         @SerializedName("apiKey")
-        val key: String?
+        val key: String?,
+        @SerializedName("admin")
+        val isAdmin: Boolean,
+        @SerializedName("username")
+        val username: String
     )
 }
 
