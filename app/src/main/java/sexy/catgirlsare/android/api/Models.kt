@@ -12,6 +12,8 @@ data class Credentials(
 data class CredentialsResponse(
     @SerializedName("type")
     val type: String,
+    @SerializedName("error")
+    val error: String,
     @SerializedName("data")
     val data: ResponseData?
 ) {
