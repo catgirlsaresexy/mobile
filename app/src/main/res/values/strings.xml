@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appName">catgirlsare.sexy</string>
+
+    <string name="login">Log in</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="login">Log in</string>
+
+    <string name="home">Home</string>
     <string name="uploads">Uploads</string>
+    <string name="logout">Log out</string>
 </resources>
