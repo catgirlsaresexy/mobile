@@ -19,8 +19,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#ddd"
+        android:layout_height="@dimen/bottomNavSize"
+        android:background="?attr/bottomNavigationBackground"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,27 +29,27 @@
 
         <ImageButton
             android:id="@+id/homeButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="#ddd"
+            android:layout_width="@dimen/bottomNavSize"
+            android:layout_height="@dimen/bottomNavSize"
+            android:background="?attr/bottomNavigationSelected"
             android:contentDescription="@string/home"
             app:layout_constraintEnd_toStartOf="@+id/uploadsButton"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/uploadsButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="#ddd"
+            android:layout_width="@dimen/bottomNavSize"
+            android:layout_height="@dimen/bottomNavSize"
+            android:background="?attr/bottomNavigationBackground"
             android:contentDescription="@string/uploads"
             app:layout_constraintEnd_toStartOf="@+id/logoutButton"
             app:layout_constraintStart_toEndOf="@+id/homeButton" />
 
         <ImageButton
             android:id="@+id/logoutButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="#ddd"
+            android:layout_width="@dimen/bottomNavSize"
+            android:layout_height="@dimen/bottomNavSize"
+            android:background="?attr/bottomNavigationBackground"
             android:contentDescription="@string/logout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/uploadsButton" />

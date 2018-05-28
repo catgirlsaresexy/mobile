@@ -2,9 +2,37 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#008577</item>
+        <item name="colorPrimaryDark">#00574b</item>
+        <item name="colorAccent">#d81b60</item>
+
+        <item name="backgroundColor">#ffffff</item>
+
+        <item name="bottomNavigationBackground">#f5f5f5</item>
+        <item name="bottomNavigationSelected">#cccccc</item>
+        <item name="bottomNavigationIconColor">#4a4a4a</item>
+
+        <item name="uploadBackgroundColor">#dddddd</item>
+        <item name="uploadDefaultThumbnailColor">#f5f5f5</item>
+        <item name="uploadFileTextColor">#4a4a4a</item>
+
+        <item name="loginTextColor">#4a4a4a</item>
+        <item name="loginBackground">#aaffffff</item>
+    </style>
+
+    <style name="AppTheme.Dark">
+        <item name="backgroundColor">#1f2d3b</item>
+
+        <item name="bottomNavigationBackground">#27394a</item>
+        <item name="bottomNavigationSelected">#2b3e50</item>
+        <item name="bottomNavigationIconColor">#dee5ed</item>
+
+        <item name="uploadBackgroundColor">#2b3e50</item>
+        <item name="uploadDefaultThumbnailColor">#828f9b</item>
+        <item name="uploadFileTextColor">#dee5ed</item>
+
+        <item name="loginBackground">#aa1f2d3b</item>
+        <item name="loginTextColor">#dee5ed</item>
     </style>
 
 </resources>

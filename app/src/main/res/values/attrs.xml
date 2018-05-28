@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="backgroundColor" format="color" />
+
+    <attr name="bottomNavigationBackground" format="color" />
+    <attr name="bottomNavigationSelected" format="color" />
+    <attr name="bottomNavigationIconColor" format="color" />
+
+    <attr name="uploadBackgroundColor" format="color" />
+    <attr name="uploadDefaultThumbnailColor" format="color" />
+    <attr name="uploadFileTextColor" format="color" />
+
+    <attr name="loginTextColor" format="color" />
+    <attr name="loginBackground" format="color" />
+</resources>

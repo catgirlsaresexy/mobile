@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="?attr/backgroundColor"
     tools:context="sexy.catgirlsare.android.ui.main.LoginFragment">
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rect"
-        android:backgroundTint="#9fff"
+        android:backgroundTint="?attr/loginBackground"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/login"
-            android:textColor="#363636"
+            android:textColor="?attr/loginTextColor"
             android:textSize="32sp" />
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/usernameField"
             android:text="@string/username"
-            android:textColor="#363636"
+            android:textColor="?attr/loginTextColor"
             android:textSize="16sp" />
 
         <EditText
@@ -58,6 +58,7 @@
             android:layout_marginBottom="16dp"
             android:autofillHints="username"
             android:inputType="textShortMessage"
+            android:textColor="?attr/loginTextColor"
             tools:ignore="UnusedAttribute" />
 
         <TextView
@@ -66,7 +67,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/passwordField"
             android:text="@string/password"
-            android:textColor="#363636"
+            android:textColor="?attr/loginTextColor"
             android:textSize="16sp" />
 
         <EditText
@@ -76,6 +77,7 @@
             android:layout_marginBottom="8dp"
             android:autofillHints="username"
             android:inputType="textPassword"
+            android:textColor="?attr/loginTextColor"
             tools:ignore="UnusedAttribute" />
 
         <Button

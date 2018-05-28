@@ -7,20 +7,21 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:background="@drawable/rounded_rect"
-    android:backgroundTint="#ddd"
+    android:backgroundTint="?attr/uploadBackgroundColor"
     tools:showIn="@layout/uploads_fragment">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/thumbnail"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#fff"
+        android:background="?attr/uploadDefaultThumbnailColor"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:riv_corner_radius_top_left="4dp"
         app:riv_corner_radius_top_right="4dp"
+        app:riv_mutate_background="true"
         app:riv_tile_mode="clamp" />
 
     <TextView
@@ -30,6 +31,7 @@
         android:padding="8dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColor="?attr/uploadFileTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thumbnail"
