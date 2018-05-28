@@ -12,7 +12,7 @@ class UploadsDataSource : PageKeyedDataSource<Int, Upload>() {
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, Upload>) {
         thread {
             val list = loadItems(1, params.requestedLoadSize)
-            callback.onResult(list.uploads, null, 2)
+            callback.onResult(list.uploads, 0, list.total, null, 2)
         }
     }
 

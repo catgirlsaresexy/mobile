@@ -11,7 +11,7 @@ class UploadsViewModel : ViewModel() {
         .setPageSize(50)
         .setInitialLoadSizeHint(50)
         .setPrefetchDistance(20)
-        .setEnablePlaceholders(false)
+        .setEnablePlaceholders(true)
         .build()
 
     private val source = UploadsDataSource.Factory()
