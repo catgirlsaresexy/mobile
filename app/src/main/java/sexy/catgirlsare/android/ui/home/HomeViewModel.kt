@@ -13,7 +13,6 @@ import sexy.catgirlsare.android.api.UploadResponse
 import sexy.catgirlsare.android.api.upload
 import kotlin.concurrent.thread
 
-
 class HomeViewModel : ViewModel() {
 
     val message: LiveData<String> = MutableLiveData()
