@@ -88,5 +88,5 @@ data class IsAdminRequest(
 
 data class IsAdminResponse(
     @SerializedName("admin")
-    val isAdmin: String
+    val isAdmin: Boolean
 )
