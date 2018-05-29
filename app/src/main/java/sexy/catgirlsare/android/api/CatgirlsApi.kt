@@ -1,9 +1,6 @@
 package sexy.catgirlsare.android.api
 
-import android.net.Uri
 import android.util.Log
-import androidx.core.net.toFile
-import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -17,7 +14,6 @@ import retrofit2.http.Body
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
-import java.io.File
 import java.io.InputStream
 import java.nio.charset.Charset
 
@@ -35,7 +31,7 @@ private val api: CatgirlsApi = Retrofit.Builder()
             val requestBody = requestBuffer.readString(Charset.forName("UTF-8")) ?: ""
 
             var message = "${request.method()} ${request.url()}\n"
-//            if (!requestBody.isBlank()) message += "\nreq: $requestBody"
+            if (!requestBody.isBlank()) message += "\nreq: $requestBody"
             Log.d("HTTP", message)
 
             val response = chain.proceed(request)
@@ -59,6 +55,7 @@ fun setApiKey(apiKey: String) {
 }
 
 fun login(username: String, password: String) = api.login(Credentials(username, password)).execute()!!
+fun isAdmin() = api.isAdmin(IsAdminRequest(key))
 fun disown(file: String) = api.disown(DisownRequest(key, file)).execute()!!
 fun getUploads(page: Int, count: Int) = api.getUploads(UploadsRequest(key, count, page)).execute()!!
 fun upload(name: String, stream: InputStream, size: Int): Response<UploadResponse> {
@@ -74,6 +71,9 @@ interface CatgirlsApi {
 
     @POST("user/auth")
     fun login(@Body credentials: Credentials): Call<CredentialsResponse>
+
+    @POST("user/is_admin")
+    fun isAdmin(@Body request: IsAdminRequest): Call<IsAdminResponse>
 
     @POST("disown")
     fun disown(@Body request: DisownRequest): Call<DisownResponse>

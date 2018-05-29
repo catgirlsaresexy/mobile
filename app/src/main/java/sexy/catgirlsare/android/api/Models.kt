@@ -80,3 +80,13 @@ data class UploadResponse(
     @SerializedName("url")
     val url: String
 )
+
+data class IsAdminRequest(
+    @SerializedName("key")
+    val key: String
+)
+
+data class IsAdminResponse(
+    @SerializedName("admin")
+    val isAdmin: String
+)
