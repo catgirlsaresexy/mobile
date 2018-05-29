@@ -55,7 +55,7 @@ fun setApiKey(apiKey: String) {
 }
 
 fun login(username: String, password: String) = api.login(Credentials(username, password)).execute()!!
-fun isAdmin() = api.isAdmin(IsAdminRequest(key))
+fun isAdmin() = api.isAdmin(IsAdminRequest(key)).execute()!!
 fun disown(file: String) = api.disown(DisownRequest(key, file)).execute()!!
 fun getUploads(page: Int, count: Int) = api.getUploads(UploadsRequest(key, count, page)).execute()!!
 fun upload(name: String, stream: InputStream, size: Int): Response<UploadResponse> {
