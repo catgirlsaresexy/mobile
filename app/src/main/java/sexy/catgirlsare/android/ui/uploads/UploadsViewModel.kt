@@ -21,10 +21,6 @@ class UploadsViewModel : ViewModel() {
         .setInitialLoadKey(1)
         .build()
 
-    init {
-        invalidate()
-    }
-
     fun invalidate() {
         uploads.value?.dataSource?.invalidate()
     }
