@@ -1,6 +1,5 @@
 package sexy.catgirlsare.android.ui.uploads
 
-import android.arch.lifecycle.ComputableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
