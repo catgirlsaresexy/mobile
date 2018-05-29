@@ -4,16 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
 
     <FrameLayout
         android:id="@+id/content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="360dp"
+        android:layout_height="519dp"
         tools:layout="@layout/login_fragment" />
 
     <android.support.constraint.ConstraintLayout
@@ -45,9 +42,33 @@
             android:background="?attr/bottomNavigationBackground"
             android:contentDescription="@string/uploads"
             android:tint="?attr/bottomNavigationIconColor"
-            app:layout_constraintEnd_toStartOf="@+id/logoutButton"
+            app:layout_constraintEnd_toStartOf="@+id/adminButton"
             app:layout_constraintStart_toEndOf="@+id/homeButton"
             app:srcCompat="@drawable/uploads" />
+
+        <ImageButton
+            android:id="@+id/adminButton"
+            android:layout_width="@dimen/bottomNavSize"
+            android:layout_height="@dimen/bottomNavSize"
+            android:background="?attr/bottomNavigationBackground"
+            android:contentDescription="@string/uploads"
+            android:tint="?attr/bottomNavigationIconColor"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/settingsButton"
+            app:layout_constraintStart_toEndOf="@+id/uploadsButton"
+            app:srcCompat="@drawable/admin"
+            tools:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="@dimen/bottomNavSize"
+            android:layout_height="@dimen/bottomNavSize"
+            android:background="?attr/bottomNavigationBackground"
+            android:contentDescription="@string/uploads"
+            android:tint="?attr/bottomNavigationIconColor"
+            app:layout_constraintEnd_toStartOf="@+id/logoutButton"
+            app:layout_constraintStart_toEndOf="@+id/adminButton"
+            app:srcCompat="@drawable/settings" />
 
         <ImageButton
             android:id="@+id/logoutButton"
@@ -57,7 +78,7 @@
             android:contentDescription="@string/logout"
             android:tint="?attr/bottomNavigationIconColor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/uploadsButton"
+            app:layout_constraintStart_toEndOf="@+id/settingsButton"
             app:srcCompat="@drawable/logout" />
 
     </android.support.constraint.ConstraintLayout>

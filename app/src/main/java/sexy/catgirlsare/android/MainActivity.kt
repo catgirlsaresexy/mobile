@@ -40,6 +40,16 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 ?.replace(R.id.content, uploadsFragment)
                 ?.commit()
         }
+        adminButton.setOnClickListener {
+            highlight(it as ImageButton)
+
+            // todo admin panel
+        }
+        settingsButton.setOnClickListener {
+            highlight(it as ImageButton)
+
+            // todo settings screen
+        }
         logoutButton.setOnClickListener {
             highlight(it as ImageButton)
 
