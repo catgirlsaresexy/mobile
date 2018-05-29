@@ -8,10 +8,12 @@ import androidx.core.content.edit
 import androidx.core.view.forEach
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.main_activity.*
+import sexy.catgirlsare.android.api.isAdmin
 import sexy.catgirlsare.android.api.setApiKey
 import sexy.catgirlsare.android.ui.home.HomeFragment
 import sexy.catgirlsare.android.ui.main.LoginFragment
 import sexy.catgirlsare.android.ui.uploads.UploadsFragment
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -82,25 +84,38 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
-        if (key != "key") return
+        when (key) {
+            "key" -> {
+                val newKey = prefs.getString("key", "")
+                setApiKey(newKey)
 
-        val newKey = prefs.getString("key", "")
-        setApiKey(newKey)
+                if (newKey.isNullOrBlank()) {
+                    loginFragment = LoginFragment()
+                    supportFragmentManager?.beginTransaction()
+                        ?.replace(R.id.content, loginFragment)
+                        ?.commit()
+                    bottomNavigation.isGone = true
+                } else {
+                    homeFragment = HomeFragment()
+                    uploadsFragment = UploadsFragment()
+                    supportFragmentManager?.beginTransaction()
+                        ?.replace(R.id.content, homeFragment)
+                        ?.commit()
+                    bottomNavigation.isGone = false
+                    highlight(homeButton)
 
-        if (newKey.isNullOrBlank()) {
-            loginFragment = LoginFragment()
-            supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.content, loginFragment)
-                ?.commit()
-            bottomNavigation.isGone = true
-        } else {
-            homeFragment = HomeFragment()
-            uploadsFragment = UploadsFragment()
-            supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.content, homeFragment)
-                ?.commit()
-            bottomNavigation.isGone = false
-            highlight(homeButton)
+                    thread {
+                        val response = isAdmin()
+                        val isAdmin = response.body()?.isAdmin == true
+                        prefs.edit {
+                            putBoolean("admin", isAdmin)
+                        }
+                    }
+                }
+            }
+            "admin" -> {
+                adminButton.isGone = !prefs.getBoolean("admin", false)
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ class LoginViewModel : ViewModel() {
 
             if (body?.data?.key != null) prefs.edit {
                 putString("key", body.data.key)
+                putBoolean("admin", body.data.isAdmin)
             }
         }
     }
