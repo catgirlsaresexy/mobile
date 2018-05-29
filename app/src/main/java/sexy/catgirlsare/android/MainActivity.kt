@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         val values = theme.obtainStyledAttributes(attrs)
 
         val unselected = values.getColor(attrs.indexOf(R.attr.bottomNavigationBackground), 0)
-        val selected = values.getColor(attrs.indexOf(R.attr.bottomNavigationBackground), 0)
+        val selected = values.getColor(attrs.indexOf(R.attr.bottomNavigationSelected), 0)
 
         values.recycle()
 
