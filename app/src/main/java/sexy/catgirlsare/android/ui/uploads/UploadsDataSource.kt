@@ -37,6 +37,10 @@ class UploadsDataSource : PageKeyedDataSource<Int, Upload>() {
         return response.body() ?: UploadList(emptyList(), 0)
     }
 
+    fun invalidateData() {
+        invalidate()
+    }
+
     class Factory : DataSource.Factory<Int, Upload>() {
         override fun create(): DataSource<Int, Upload> = UploadsDataSource()
     }

@@ -69,3 +69,14 @@ data class Upload(
     @SerializedName("original_name")
     val originalName: String
 )
+
+data class UploadResponse(
+    @SerializedName("success")
+    val isSuccessful: Boolean,
+    @SerializedName("hash")
+    val hash: String,
+    @SerializedName("shortHash")
+    val shortHash: String,
+    @SerializedName("url")
+    val url: String
+)

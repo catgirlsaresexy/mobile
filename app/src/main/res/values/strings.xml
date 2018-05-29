@@ -9,4 +9,7 @@
     <string name="home">Home</string>
     <string name="uploads">Uploads</string>
     <string name="logout">Log out</string>
+
+    <string name="upload">Upload</string>
+    <string name="select">Select a file</string>
 </resources>

@@ -1,5 +1,6 @@
 package sexy.catgirlsare.android.ui.uploads
 
+import android.arch.lifecycle.ComputableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
@@ -16,7 +17,15 @@ class UploadsViewModel : ViewModel() {
 
     private val source = UploadsDataSource.Factory()
 
-    val uploads = LivePagedListBuilder<Int, Upload>(source, config)
+    var uploads = LivePagedListBuilder<Int, Upload>(source, config)
         .setInitialLoadKey(1)
         .build()
+
+    init {
+        invalidate()
+    }
+
+    fun invalidate() {
+        uploads.value?.dataSource?.invalidate()
+    }
 }
