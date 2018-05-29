@@ -33,8 +33,10 @@
             android:layout_height="@dimen/bottomNavSize"
             android:background="?attr/bottomNavigationSelected"
             android:contentDescription="@string/home"
+            android:tint="?attr/bottomNavigationIconColor"
             app:layout_constraintEnd_toStartOf="@+id/uploadsButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/home" />
 
         <ImageButton
             android:id="@+id/uploadsButton"
@@ -42,8 +44,10 @@
             android:layout_height="@dimen/bottomNavSize"
             android:background="?attr/bottomNavigationBackground"
             android:contentDescription="@string/uploads"
+            android:tint="?attr/bottomNavigationIconColor"
             app:layout_constraintEnd_toStartOf="@+id/logoutButton"
-            app:layout_constraintStart_toEndOf="@+id/homeButton" />
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:srcCompat="@drawable/uploads" />
 
         <ImageButton
             android:id="@+id/logoutButton"
@@ -51,8 +55,10 @@
             android:layout_height="@dimen/bottomNavSize"
             android:background="?attr/bottomNavigationBackground"
             android:contentDescription="@string/logout"
+            android:tint="?attr/bottomNavigationIconColor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/uploadsButton" />
+            app:layout_constraintStart_toEndOf="@+id/uploadsButton"
+            app:srcCompat="@drawable/logout" />
 
     </android.support.constraint.ConstraintLayout>
 
