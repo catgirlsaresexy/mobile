@@ -4,7 +4,11 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.Intent.ACTION_OPEN_DOCUMENT
 import android.content.Intent.CATEGORY_OPENABLE
+import android.content.Intent.EXTRA_INITIAL_INTENTS
 import android.os.Bundle
+import android.provider.MediaStore.ACTION_IMAGE_CAPTURE
+import android.provider.MediaStore.ACTION_VIDEO_CAPTURE
+import android.provider.MediaStore.Audio.Media.RECORD_SOUND_ACTION
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -28,7 +32,11 @@ class HomeFragment : Fragment() {
             val openIntent = Intent(ACTION_OPEN_DOCUMENT)
             openIntent.addCategory(CATEGORY_OPENABLE)
             openIntent.type = "*/*"
-            val picker = Intent.createChooser(openIntent, getString(R.string.select))
+            val imageIntent = Intent(ACTION_IMAGE_CAPTURE)
+            val videoIntent = Intent(ACTION_VIDEO_CAPTURE)
+            val audioIntent = Intent(RECORD_SOUND_ACTION)
+            val picker = Intent.createChooser(Intent(), getString(R.string.select))
+            picker.putExtra(EXTRA_INITIAL_INTENTS, arrayOf(openIntent, imageIntent, videoIntent, audioIntent))
             startActivityForResult(picker, 1000)
         }
 
