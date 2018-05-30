@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         prefs.registerOnSharedPreferenceChangeListener(this)
 
         onSharedPreferenceChanged(prefs, "key")
+        onSharedPreferenceChanged(prefs, "admin")
 
         homeButton.setOnClickListener {
             highlight(it as ImageButton)
