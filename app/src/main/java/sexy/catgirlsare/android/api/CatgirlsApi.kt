@@ -30,12 +30,16 @@ private val api: CatgirlsApi = Retrofit.Builder()
             request.body()?.writeTo(requestBuffer)
             val requestBody = requestBuffer.readString(Charset.forName("UTF-8")) ?: ""
 
+            val startTime = System.currentTimeMillis()
             val response = chain.proceed(request)
+            val time = System.currentTimeMillis() - startTime
 
             val contentType = response.body()?.contentType()
             val responseBody = response.body()?.string() ?: ""
 
             var message = "${request.method()} ${request.url()}"
+            message += "${response.code()} ${response.message()}".trim()
+            message += "${time}ms"
             if (!requestBody.isBlank()) message += "\n\nreq: $requestBody"
             if (!responseBody.isBlank()) message += "\n\nres: $responseBody"
             Log.d("HTTP", message)
