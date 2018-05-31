@@ -37,9 +37,9 @@ private val api: CatgirlsApi = Retrofit.Builder()
             val contentType = response.body()?.contentType()
             val responseBody = response.body()?.string() ?: ""
 
-            var message = "${request.method()} ${request.url()}"
+            var message = "${request.method()} ${request.url()}\n"
             message += "${response.code()} ${response.message()}".trim()
-            message += "${time}ms"
+            message += " ${time}ms"
             if (!requestBody.isBlank()) message += "\n\nreq: $requestBody"
             if (!responseBody.isBlank()) message += "\n\nres: $responseBody"
             Log.d("HTTP", message)
