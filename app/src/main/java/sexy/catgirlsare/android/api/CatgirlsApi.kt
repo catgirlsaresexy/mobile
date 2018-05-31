@@ -61,8 +61,8 @@ fun login(username: String, password: String) = api.login(Credentials(username, 
 fun isAdmin() = api.isAdmin(IsAdminRequest(key)).execute()!!
 fun disown(file: String) = api.disown(DisownRequest(key, file)).execute()!!
 fun getUploads(page: Int, count: Int) = api.getUploads(UploadsRequest(key, count, page)).execute()!!
-fun upload(name: String, stream: InputStream, size: Int): Response<UploadResponse> {
-    val bytes = stream.readBytes(size)
+fun upload(name: String, stream: InputStream, size: Long): Response<UploadResponse> {
+    val bytes = stream.readBytes(size.toInt())
     stream.close()
     return api.upload(
         MultipartBody.Part.createFormData("file", name, RequestBody.create(null, bytes)),
