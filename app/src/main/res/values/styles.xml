@@ -6,6 +6,9 @@
         <item name="colorPrimaryDark">#00574b</item>
         <item name="colorAccent">#d81b60</item>
 
+        <item name="alertDialogTheme">@style/AppTheme.Dialog</item>
+        <item name="dialogTheme">@style/AppTheme.Dialog</item>
+
         <item name="backgroundColor">#ffffff</item>
 
         <item name="bottomNavigationBackground">#f5f5f5</item>
@@ -20,7 +23,16 @@
         <item name="loginBackground">#aaffffff</item>
     </style>
 
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">#008577</item>
+        <item name="colorPrimaryDark">#00574b</item>
+        <item name="colorAccent">#d81b60</item>
+    </style>
+
     <style name="AppTheme.Dark">
+        <item name="alertDialogTheme">@style/AppTheme.Dark.Dialog</item>
+        <item name="dialogTheme">@style/AppTheme.Dark.Dialog</item>
+
         <item name="backgroundColor">#1f2d3b</item>
 
         <item name="bottomNavigationBackground">#27394a</item>
@@ -33,6 +45,14 @@
 
         <item name="loginBackground">#aa1f2d3b</item>
         <item name="loginTextColor">#dee5ed</item>
+    </style>
+
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">#008577</item>
+        <item name="colorPrimaryDark">#00574b</item>
+        <item name="colorAccent">#d81b60</item>
+
+        <item name="android:background">#1f2d3b</item>
     </style>
 
 </resources>

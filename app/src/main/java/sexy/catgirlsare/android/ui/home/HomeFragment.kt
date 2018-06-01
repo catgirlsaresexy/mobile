@@ -3,7 +3,6 @@ package sexy.catgirlsare.android.ui.home
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.app.Activity.RESULT_OK
-import android.app.AlertDialog
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.Intent.ACTION_OPEN_DOCUMENT
@@ -21,6 +20,7 @@ import android.support.v4.app.ActivityCompat.checkSelfPermission
 import android.support.v4.app.ActivityCompat.requestPermissions
 import android.support.v4.app.Fragment
 import android.support.v4.content.FileProvider.getUriForFile
+import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
             if (checkSelfPermission(activity!!, READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED ||
                 checkSelfPermission(activity!!, WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED
             ) {
-                AlertDialog.Builder(context)
+                AlertDialog.Builder(context!!)
                     .setMessage(R.string.permissionRequired)
                     .setPositiveButton(R.string.permissionGrant) { _, _ ->
                         requestPermissions(activity!!, arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE), 100)

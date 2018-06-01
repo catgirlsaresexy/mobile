@@ -1,11 +1,11 @@
 package sexy.catgirlsare.android.ui.settings
 
-import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.edit
@@ -24,7 +24,7 @@ class SettingsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         showKeyButton.setOnClickListener {
-            AlertDialog.Builder(context)
+            AlertDialog.Builder(context!!)
                 .setMessage(getString(R.string.showKeyMessage).format(key))
                 .setPositiveButton(R.string.showKeyCopy) { _, _ ->
                     val clipboard = context?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
