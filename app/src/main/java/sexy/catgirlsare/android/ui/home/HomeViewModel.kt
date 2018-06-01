@@ -10,6 +10,7 @@ import android.provider.OpenableColumns.SIZE
 import android.util.Log
 import androidx.core.database.getLong
 import androidx.core.database.getString
+import sexy.catgirlsare.android.R
 import sexy.catgirlsare.android.api.UploadResponse
 import sexy.catgirlsare.android.api.upload
 import java.io.File
@@ -34,7 +35,7 @@ class HomeViewModel : ViewModel() {
 
                     if (!cursor.moveToFirst()) {
                         cursor.close()
-                        mutableMessage.postValue("The file is not valid")
+                        mutableMessage.postValue(context.getString(R.string.fileInvalid))
                         return@thread
                     }
 
@@ -43,7 +44,7 @@ class HomeViewModel : ViewModel() {
                     val stream = context.contentResolver.openInputStream(uri)
 
                     if (size > 100000000L) {
-                        mutableMessage.postValue("The file is too large")
+                        mutableMessage.postValue(context.getString(R.string.fileSizeLimitExceeded))
                         return@thread
                     }
 
@@ -53,17 +54,17 @@ class HomeViewModel : ViewModel() {
                     val file = try {
                         File(uri.path)
                     } catch (e: FileNotFoundException) {
-                        mutableMessage.postValue("The file is invalid")
+                        mutableMessage.postValue(context.getString(R.string.fileInvalid))
                         return@thread
                     }
 
                     if (!file.exists()) {
-                        mutableMessage.postValue("The file does not exist")
+                        mutableMessage.postValue(context.getString(R.string.fileNotFound))
                         return@thread
                     }
 
                     if (file.length() > 100000000L) {
-                        mutableMessage.postValue("The file is too large")
+                        mutableMessage.postValue(context.getString(R.string.fileSizeLimitExceeded))
                         return@thread
                     }
 
@@ -78,11 +79,11 @@ class HomeViewModel : ViewModel() {
             val body = response.body()
 
             if (body == null || !body.isSuccessful) {
-                mutableMessage.postValue("The did not upload successfully")
+                mutableMessage.postValue(context.getString(R.string.uploadFailed))
                 return@thread
             }
 
-            mutableMessage.postValue("File upload completed successfully")
+            mutableMessage.postValue(context.getString(R.string.uploadSuccessful))
             mutableFile.postValue(body)
         }
     }

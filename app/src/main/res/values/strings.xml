@@ -16,4 +16,11 @@
     <string name="permissionRequired">The app is missing storage permissions</string>
     <string name="permissionGrant">Grant permissions</string>
     <string name="permissionCancel">Cancel</string>
+
+    <string name="fileInvalid">The file is invalid</string>
+    <string name="fileSizeLimitExceeded">The file is too large</string>
+    <string name="fileNotFound">The file does not exist</string>
+
+    <string name="uploadSuccessful">The file uploaded successfully</string>
+    <string name="uploadFailed">The file upload failed</string>
 </resources>
