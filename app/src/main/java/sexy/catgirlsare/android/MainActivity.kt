@@ -144,7 +144,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 }
 
                 recreate()
-                settingsButton.callOnClick()
             }
         }
     }
