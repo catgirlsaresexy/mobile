@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.widget.ImageButton
+import android.view.View
 import androidx.core.content.edit
 import androidx.core.view.forEach
 import androidx.core.view.isGone
@@ -42,24 +42,24 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         onSharedPreferenceChanged(prefs, "admin")
 
         homeButton.setOnClickListener {
-            highlight(it as ImageButton)
+            highlight(it)
             supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.content, homeFragment)
                 ?.commit()
         }
         uploadsButton.setOnClickListener {
-            highlight(it as ImageButton)
+            highlight(it)
             supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.content, uploadsFragment)
                 ?.commit()
         }
         adminButton.setOnClickListener {
-            highlight(it as ImageButton)
+            highlight(it)
 
             // todo admin panel
         }
         settingsButton.setOnClickListener {
-            highlight(it as ImageButton)
+            highlight(it)
             supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.content, settingsFragment)
                 ?.commit()
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
     }
 
-    private fun highlight(button: ImageButton) {
+    private fun highlight(view: View) {
 
         val attrs = intArrayOf(R.attr.bottomNavigationBackground, R.attr.bottomNavigationSelected)
         val values = theme.obtainStyledAttributes(attrs)
@@ -93,11 +93,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         values.recycle()
 
-        bottomNavigation.forEach { view ->
-            if (view.id == button.id) {
-                view.setBackgroundColor(selected)
+        bottomNavigation.forEach { v ->
+            if (v.id == view.id) {
+                v.setBackgroundColor(selected)
             } else {
-                view.setBackgroundColor(unselected)
+                v.setBackgroundColor(unselected)
             }
         }
     }
