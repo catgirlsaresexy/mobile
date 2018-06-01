@@ -12,4 +12,8 @@
 
     <string name="upload">Upload</string>
     <string name="select">Select a file</string>
+
+    <string name="permissionRequired">The app is missing storage permissions</string>
+    <string name="permissionGrant">Grant permissions</string>
+    <string name="permissionCancel">Cancel</string>
 </resources>

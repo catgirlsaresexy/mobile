@@ -1,11 +1,15 @@
 package sexy.catgirlsare.android.ui.home
 
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.Intent.ACTION_OPEN_DOCUMENT
 import android.content.Intent.CATEGORY_OPENABLE
 import android.content.Intent.EXTRA_INITIAL_INTENTS
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
 import android.os.Environment
 import android.os.Environment.DIRECTORY_DCIM
@@ -13,6 +17,8 @@ import android.provider.MediaStore.ACTION_IMAGE_CAPTURE
 import android.provider.MediaStore.ACTION_VIDEO_CAPTURE
 import android.provider.MediaStore.Audio.Media.RECORD_SOUND_ACTION
 import android.provider.MediaStore.EXTRA_OUTPUT
+import android.support.v4.app.ActivityCompat.checkSelfPermission
+import android.support.v4.app.ActivityCompat.requestPermissions
 import android.support.v4.app.Fragment
 import android.support.v4.content.FileProvider.getUriForFile
 import android.util.Log
@@ -40,6 +46,20 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
         uploadButton.setOnClickListener {
+            if (checkSelfPermission(activity!!, READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED ||
+                checkSelfPermission(activity!!, WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED
+            ) {
+                AlertDialog.Builder(context)
+                    .setMessage(R.string.permissionRequired)
+                    .setPositiveButton(R.string.permissionGrant) { _, _ ->
+                        requestPermissions(activity!!, arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE), 100)
+                    }
+                    .setNegativeButton(R.string.permissionCancel) { dialog, _ -> dialog.dismiss() }
+                    .create()
+                    .show()
+                return@setOnClickListener
+            }
+
             val openIntent = Intent(ACTION_OPEN_DOCUMENT)
             openIntent.addCategory(CATEGORY_OPENABLE)
             openIntent.type = "*/*"
