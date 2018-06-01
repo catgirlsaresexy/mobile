@@ -108,4 +108,10 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (requestCode == 100 && grantResults[0] == PERMISSION_GRANTED) {
+            uploadButton.callOnClick()
+        }
+    }
 }
