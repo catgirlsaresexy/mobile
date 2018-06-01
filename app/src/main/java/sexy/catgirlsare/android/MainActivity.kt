@@ -65,8 +65,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 ?.commit()
         }
         logoutButton.setOnClickListener {
-            highlight(it as ImageButton)
-
             AlertDialog.Builder(this)
                 .setMessage(R.string.logoutMessage)
                 .setPositiveButton(R.string.logoutConfirm) { dialog, _ ->
