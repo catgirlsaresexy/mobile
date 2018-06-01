@@ -30,7 +30,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         initializePrefs(this)
         prefs.registerOnSharedPreferenceChangeListener(this)
 
-        onSharedPreferenceChanged(prefs, "dark")
+        if (prefs.getBoolean("dark", false)) {
+            setTheme(R.style.AppTheme_Dark)
+        } else {
+            setTheme(R.style.AppTheme)
+        }
 
         setContentView(R.layout.main_activity)
 
@@ -140,6 +144,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 } else {
                     setTheme(R.style.AppTheme)
                 }
+
+                recreate()
+                settingsButton.callOnClick()
             }
         }
     }
