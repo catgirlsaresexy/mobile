@@ -23,4 +23,8 @@
 
     <string name="uploadSuccessful">The file uploaded successfully</string>
     <string name="uploadFailed">The file upload failed</string>
+
+    <string name="logoutMessage">Are you sure you want to log out?</string>
+    <string name="logoutConfirm">Log out</string>
+    <string name="logoutCancel">Cancel</string>
 </resources>

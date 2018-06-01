@@ -2,6 +2,7 @@ package sexy.catgirlsare.android
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageButton
 import androidx.core.content.edit
@@ -56,12 +57,21 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         logoutButton.setOnClickListener {
             highlight(it as ImageButton)
 
-            // todo confirmation dialog
+            AlertDialog.Builder(this)
+                .setMessage(R.string.logoutMessage)
+                .setPositiveButton(R.string.logoutConfirm) { dialog, _ ->
+                    prefs.edit {
+                        putString("key", "")
+                    }
+                    // onSharedPreferenceChanged should take care of the rest
 
-            prefs.edit {
-                putString("key", "")
-            }
-            // onSharedPreferenceChanged should take care of the rest
+                    dialog.dismiss()
+                }
+                .setNegativeButton(R.string.logoutCancel) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
         }
     }
 
