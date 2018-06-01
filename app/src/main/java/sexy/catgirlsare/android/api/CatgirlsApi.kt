@@ -52,7 +52,7 @@ private val api: CatgirlsApi = Retrofit.Builder()
     .build()
     .create(CatgirlsApi::class.java)
 
-private var key: String = ""
+var key: String = ""
 fun setApiKey(apiKey: String) {
     key = apiKey
 }

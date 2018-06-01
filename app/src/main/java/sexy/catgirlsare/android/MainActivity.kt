@@ -13,6 +13,7 @@ import sexy.catgirlsare.android.api.isAdmin
 import sexy.catgirlsare.android.api.setApiKey
 import sexy.catgirlsare.android.ui.home.HomeFragment
 import sexy.catgirlsare.android.ui.main.LoginFragment
+import sexy.catgirlsare.android.ui.settings.SettingsFragment
 import sexy.catgirlsare.android.ui.uploads.UploadsFragment
 import kotlin.concurrent.thread
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private lateinit var loginFragment: LoginFragment
     private lateinit var homeFragment: HomeFragment
     private lateinit var uploadsFragment: UploadsFragment
+    private lateinit var settingsFragment: SettingsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,8 +53,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
         settingsButton.setOnClickListener {
             highlight(it as ImageButton)
-
-            // todo settings screen
+            supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.content, settingsFragment)
+                ?.commit()
         }
         logoutButton.setOnClickListener {
             highlight(it as ImageButton)
@@ -109,6 +112,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 } else {
                     homeFragment = HomeFragment()
                     uploadsFragment = UploadsFragment()
+                    settingsFragment = SettingsFragment()
                     supportFragmentManager?.beginTransaction()
                         ?.replace(R.id.content, homeFragment)
                         ?.commit()

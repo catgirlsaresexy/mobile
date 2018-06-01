@@ -27,4 +27,13 @@
     <string name="logoutMessage">Are you sure you want to log out?</string>
     <string name="logoutConfirm">Log out</string>
     <string name="logoutCancel">Cancel</string>
+
+    <string name="showKey">Show API key</string>
+    <string name="showKeyMessage">Your API key is %s</string>
+    <string name="showKeyCopy">Copy</string>
+    <string name="showKeyDismiss">Dismiss</string>
+    <string name="showKeyCopyName">API key</string>
+    <string name="showKeyCopyError">Could not copy the API key</string>
+
+    <string name="toggleTheme">Toggle theme</string>
 </resources>
