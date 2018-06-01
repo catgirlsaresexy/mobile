@@ -26,10 +26,13 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
 
         initializePrefs(this)
         prefs.registerOnSharedPreferenceChangeListener(this)
+
+        onSharedPreferenceChanged(prefs, "dark")
+
+        setContentView(R.layout.main_activity)
 
         onSharedPreferenceChanged(prefs, "key")
         onSharedPreferenceChanged(prefs, "admin")
@@ -130,6 +133,13 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             }
             "admin" -> {
                 adminButton.isGone = !prefs.getBoolean("admin", false)
+            }
+            "dark" -> {
+                if (prefs.getBoolean("dark", false)) {
+                    setTheme(R.style.AppTheme_Dark)
+                } else {
+                    setTheme(R.style.AppTheme)
+                }
             }
         }
     }
